@@ -1,0 +1,129 @@
+/* Overall Page Structure*/
+.parent {
+  display: grid;
+  /*grid-template-columns: 1fr 5fr 1fr;*/
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  /*grid-template-areas: "nav nav nav"
+                                  "home home home"
+                                  "review review review"
+                                  "bio bio bio"
+                                  "about about about";*/
+  margin: 0;
+  grid-template-areas: "nav"
+                                  "home"
+                                  "review"
+                                  "bio"
+                                  "about";
+}
+
+.spacing {
+  margin: 0 0 0 0;
+  padding: 2.5rem;
+}
+
+/* Main Site Navigation */
+#main-nav {
+  /*color: blue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: inherit;
+  text-align: center;
+  font-size: 30px;
+  background-color: yellow;
+  grid-area: nav;*/
+  grid-area: nav;
+  background-color: yellow;
+  height: inherit;
+  top: 0;
+  text-align: center;
+}
+
+#main-nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+#main-nav li {
+  padding: 0 5vw 0 0;
+}
+
+#main-nav a {
+  text-decoration: none;
+}
+
+#main-nav a:hover {
+  color: red;
+  background-color: gray;
+}
+
+/* Landing Page &  Image*/
+#home {
+  grid-area: home;
+  background-color: pink;
+  /*margin: 5rem 0 3rem 0;
+  padding: 2.5rem;*/
+}
+
+#home h1 {
+  text-align: center;
+}
+
+#home img {
+  display: block;
+  width: 90%;
+  margin: 0 auto 0 auto;
+}
+
+/* Reviews */
+#film-and-television {
+  grid-area: review;
+  background-color: orange;
+}
+
+/* Biography Section */
+#biography {
+  grid-area: bio;
+  background-color: green;
+}
+
+/* about me */
+#about {
+  grid-area: about;
+  background-color: teal;
+  width: 100%;
+  height: inherit;
+  bottom: 0;
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  #main-nav {
+    color: blue;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 28px;
+    background-color: purple;
+    grid-area: nav;
+    margin: 0;
+    padding: 0
+  }
+
+  #home {
+    grid-area: home;
+    background-color: pink;
+    margin: 5rem 0 0 0 !important;
+  }
+
+  #home img {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto 0 auto;
+  }
+}
