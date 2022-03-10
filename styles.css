@@ -1,16 +1,12 @@
-/* Overall Page Structure*/
+/* The main layout was designed to be read on a mobile decive. The media query adjusts some design to look better on a larger screen. */
+
+/* Overall Page Structure - all media types*/
 .parent {
   display: grid;
-  /*grid-template-columns: 1fr 5fr 1fr;*/
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, auto);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  /*grid-template-areas: "nav nav nav"
-                                  "home home home"
-                                  "review review review"
-                                  "bio bio bio"
-                                  "about about about";*/
   margin: 0;
   grid-template-areas: "nav"
                                   "home"
@@ -21,20 +17,24 @@
 
 .spacing {
   margin: 0 0 0 0;
-  padding: 2.5rem;
+  padding:  2.5rem;
+}
+
+h1 {
+  text-align: center;
+  padding: 8%;
+}
+
+h2 {
+  padding: 5% 0 5% 0;
+}
+
+p {
+
 }
 
 /* Main Site Navigation */
 #main-nav {
-  /*color: blue;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: inherit;
-  text-align: center;
-  font-size: 30px;
-  background-color: yellow;
-  grid-area: nav;*/
   grid-area: nav;
   background-color: yellow;
   height: inherit;
@@ -45,31 +45,32 @@
 #main-nav ul {
   list-style-type: none;
   display: flex;
+  justify-content: space-around;
 }
 
 #main-nav li {
-  padding: 0 5vw 0 0;
+  padding: 0 0 0 0;
 }
 
 #main-nav a {
+  color: red;
   text-decoration: none;
 }
 
 #main-nav a:hover {
   color: red;
-  background-color: gray;
+  text-decoration: underline;
 }
 
-/* Landing Page &  Image*/
+#main-nav a:visited {
+  color: red;
+  text-decoration: none;
+}
+
+/* Landing Page &  Image section*/
 #home {
   grid-area: home;
   background-color: pink;
-  /*margin: 5rem 0 3rem 0;
-  padding: 2.5rem;*/
-}
-
-#home h1 {
-  text-align: center;
 }
 
 #home img {
@@ -78,10 +79,33 @@
   margin: 0 auto 0 auto;
 }
 
-/* Reviews */
+/* Reviews section */
 #film-and-television {
   grid-area: review;
   background-color: orange;
+
+}
+
+.review-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 0;
+  grid-template-areas: "img"
+                                  "title"
+                                  "text"
+}
+
+.review-card img {
+  grid-area: img;
+  max-width: 250px;
+  margin: 10% auto 0 auto !important;
+}
+
+.review-card h3 {
+  text-align: center;
 }
 
 /* Biography Section */
@@ -90,7 +114,7 @@
   background-color: green;
 }
 
-/* about me */
+/* about me section */
 #about {
   grid-area: about;
   background-color: teal;
@@ -100,30 +124,50 @@
   text-align: center;
 }
 
-@media screen and (min-width: 600px) {
+/* Adjustments made for large screens*/
+@media screen and (min-width: 750px) {
+  .spacing {
+    margin: 0 15% 0 15%;
+    padding:  7%;
+  }
+
   #main-nav {
+    grid-area: nav;
+    background-color: purple;
     color: blue;
     position: fixed;
     top: 0;
     width: 100%;
-    height: auto;
-    text-align: center;
+    height: inherit;
     font-size: 28px;
-    background-color: purple;
-    grid-area: nav;
-    margin: 0;
-    padding: 0
   }
 
-  #home {
-    grid-area: home;
-    background-color: pink;
-    margin: 5rem 0 0 0 !important;
+  #main-nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
   }
 
   #home img {
     display: block;
     max-width: 600px;
     margin: 0 auto 0 auto;
+  }
+
+  .review-card {
+    display: grid;
+    grid-template-columns: auto 2fr;
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 15px;
+    grid-row-gap: 0;
+    margin: 0;
+    grid-template-areas: "img title"
+                                    "img text"
+  }
+
+  .review-card h3 {
+    text-align: left;
+    align-self: end;
+    background-color: pink;
   }
 }
