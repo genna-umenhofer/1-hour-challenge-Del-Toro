@@ -1,8 +1,12 @@
 /* The main layout was designed to be read on a mobile decive. The media query adjusts some design to look better on a larger screen. */
 
 /* Overall Page Structure - all media types*/
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
+
 .parent {
   display: grid;
+  background: rgb(42,119,181);
+  background: linear-gradient(180deg, rgba(42,119,181,0.07046568627450978) 15%, rgba(44,118,194,0.4738270308123249) 70%, /*rgba(45,117,203,0.46262254901960786) 74%,*/ rgba(46,116,212,0.7203256302521008) 77%, rgba(46,88,212,1) 100%);
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, auto);
   grid-column-gap: 0px;
@@ -17,29 +21,44 @@
 
 .spacing {
   margin: 0 0 0 0;
-  padding:  2.5rem;
+  padding: 10% 0 10% 0;
 }
 
 h1 {
   text-align: center;
-  padding: 8%;
+  padding: 7%;
+  font-family: 'EB Garamond', serif;
+  font-size: 45px;
 }
 
 h2 {
-  padding: 5% 0 5% 0;
+  padding: 5% 5% 5% 0;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 32px;
+}
+
+h3 {
+  padding: 5% 5% 0  0;
+  font-family: 'EB Garamond', serif;
+  font-size: 28px;
 }
 
 p {
-
+  padding: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
 }
 
 /* Main Site Navigation */
 #main-nav {
   grid-area: nav;
-  background-color: yellow;
+  background-color: white;
   height: inherit;
   top: 0;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px !important;
 }
 
 #main-nav ul {
@@ -50,27 +69,28 @@ p {
 
 #main-nav li {
   padding: 0 0 0 0;
+
 }
 
 #main-nav a {
-  color: red;
+  color: black;
   text-decoration: none;
 }
 
 #main-nav a:hover {
-  color: red;
+  color: black;
   text-decoration: underline;
 }
 
 #main-nav a:visited {
-  color: red;
+  color: black;
   text-decoration: none;
 }
 
 /* Landing Page &  Image section*/
 #home {
   grid-area: home;
-  background-color: pink;
+  /*background-color: white;*/
 }
 
 #home img {
@@ -82,8 +102,9 @@ p {
 /* Reviews section */
 #film-and-television {
   grid-area: review;
-  background-color: orange;
-
+  /*background-color: white;*/
+  display: flex;
+  flex-direction: column;
 }
 
 .review-card {
@@ -92,7 +113,6 @@ p {
   grid-template-rows: repeat(3, auto);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  margin: 0;
   grid-template-areas: "img"
                                   "title"
                                   "text"
@@ -106,18 +126,20 @@ p {
 
 .review-card h3 {
   text-align: center;
+  font-family: 'EB Garamond', serif;
 }
 
 /* Biography Section */
 #biography {
   grid-area: bio;
-  background-color: green;
+  color: white;
+  /*background-color: white;*/
 }
 
 /* about me section */
 #about {
   grid-area: about;
-  background-color: teal;
+  background-color: white;
   width: 100%;
   height: inherit;
   bottom: 0;
@@ -125,7 +147,36 @@ p {
 }
 
 /* Adjustments made for large screens*/
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 400px) {
+  h2, h3, p {
+    padding: 0 15% 0 15%;
+  }
+
+  #main-nav {
+    grid-area: nav;
+    /*background-color: white;*/
+    color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: inherit;
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+  }
+
+  #main-nav li {
+    padding: 0 0 0 0;
+  }
+
+  #home img {
+    display: block;
+    max-width: 500px;
+    margin: 0 auto 0 auto;
+  }
+
+}
+
+@media screen and (min-width: 1000px) {
   .spacing {
     margin: 0 15% 0 15%;
     padding:  7%;
@@ -133,19 +184,24 @@ p {
 
   #main-nav {
     grid-area: nav;
-    background-color: purple;
-    color: blue;
+    background-color: white;
+    color: black;
     position: fixed;
     top: 0;
     width: 100%;
     height: inherit;
-    font-size: 28px;
+    font-family: 'Raleway', sans-serif;
   }
 
   #main-nav ul {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
+  }
+
+  #main-nav li {
+    padding: 0 0 0 0;
+    font-size: 28px;
   }
 
   #home img {
@@ -168,6 +224,7 @@ p {
   .review-card h3 {
     text-align: left;
     align-self: end;
-    background-color: pink;
+    /*background-color: white;*/
+    font-family: 'EB Garamond', serif;
   }
 }
